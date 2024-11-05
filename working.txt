@@ -1,0 +1,62 @@
+Construction Safety Web Application using Flask
+
+*This web application is designed to enhance construction site safety by using real-time detection of personal protective equipment (PPE). The application uses Flask as the backend framework and HTML/CSS for the front-end interface. The core functionality allows users to log in and monitor construction sites through live camera feeds to ensure that workers are wearing proper safety gear (PPE).
+
+  Main Features:
+*Login Page: The system includes a secure login page that grants access to the supervisor.
+
+*Camera Selection: Once logged in, users can select the camera that will monitor the worksite or construction site.
+
+*Real-time Monitoring: The application shows live footage from the selected camera. It uses a YOLO-based detection model to identify whether workers are wearing the required PPE, including hardhats, safety vests, and masks.
+
+*Violation Detection & Alerts: If the system detects that a worker is not wearing the necessary PPE, it highlights the violation on the monitor.
+
+*Telegram Alert System: The application sends an alert to the supervisor via Telegram. The alert includes:
+       A message identifying the type of safety violation.
+       A picture of the worker not following PPE guidelines.
+       A link allowing the supervisor to view the live footage of the construction site .
+*PPE Detection: The system distinguishes between compliance (correct PPE usage) and non-compliance (no PPE). Alerts are generated when non-compliance is detected.
+
+How it works:
+* After logging in, the user selects a camera to monitor the construction site.
+* The system uses the YOLO model to analyze the video feed in real-time, detecting whether workers are compliant with PPE safety standards.
+* If non-compliance is detected, the system sends an alert to the supervisor's Telegram account, including an image of the violation and a link to view the live feed.
+* The system ensures that supervisors are notified in a timely manner, helping them enforce safety rules.
+
+It can detect :
+  * Hardhat
+  * Mask
+  * Safety Vest
+  * Person
+  * Safety Cone
+  * machinery
+  * vehicle
+
+
+  Key Features of the Project:
+
+  1) Real-time Object Detection:
+
+  The YOLO model detects specific classes such as hard hats, masks, safety vests, and non-compliance indicators (e.g., no hard hat, no mask).
+
+  2) Video Streaming:
+  the project provides two video feeds:
+  A raw feed of the camera.
+  A processed feed that displays detected objects and compliance statuses.
+
+  3) Alert System:
+  Alerts are sent to a Telegram chat if non-compliance is detected. This includes sending an image of the violation along with a message describing the issue.
+  The system tracks the last alert time to avoid spamming alerts for the same violation within a defined interval.
+
+  4) Audio Notifications:
+  Audio alerts are played when non-compliance is detected, ensuring immediate attention can be drawn to safety violations.
+
+  5) Web Application Interface:
+  A simple web interface for user authentication and selecting the camera for monitoring.
+  Login functionality to restrict access to authorized personnel.
+
+  6) Ngrok Integration:
+  The project uses ngrok to expose the local web application to the internet, enabling remote access to the live feeds.
+
+  7) User Authentication:
+  Basic username and password authentication to restrict access to the application.

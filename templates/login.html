@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f4f4f4, #e0e0e0);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        form:hover {
+            transform: scale(1.02);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Login</h2>
+        <form method="POST" action="/login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required aria-required="true" placeholder="Enter your username" autofocus>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required aria-required="true" placeholder="Enter your password">
+
+            <!-- Display error message if login fails -->
+            {% if error %}
+            <div class="error-message">{{ error }}</div>
+            {% endif %}
+
+            <button type="submit">Login</button>
+        </form>
+        <div class="footer">© 2024 Construction Safety Inc.</div>
+    </div>
+</body>
+</html>
